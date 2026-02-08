@@ -6,7 +6,8 @@
   "workspaces": [
     "agent",
     "cli",
-    "gui",
+    "gui/server",
+    "gui/client",
     "shared"
   ],
   "scripts": {

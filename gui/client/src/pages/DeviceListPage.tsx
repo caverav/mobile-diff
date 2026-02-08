@@ -58,11 +58,16 @@ export function DeviceListPage() {
 }
 
 function DeviceCard({ device }: { device: Device }) {
-  const { data: apps, isLoading } = useQuery<App[]>({
+  const { data: apps, isLoading, isError } = useQuery<App[]>({
     queryKey: ['apps', device.id],
     queryFn: async () => {
       const res = await fetch(`/api/devices/${device.id}/apps`);
-      return res.json();
+      const data = await res.json();
+      // Handle error responses
+      if (!res.ok || data.error) {
+        return [];
+      }
+      return Array.isArray(data) ? data : [];
     },
   });
 
@@ -81,9 +86,9 @@ function DeviceCard({ device }: { device: Device }) {
           <h4 className="text-sm font-medium text-gray-900 mb-2">Apps</h4>
           {isLoading ? (
             <Loader2 className="w-4 h-4 animate-spin text-gray-400" />
-          ) : (
+          ) : apps && apps.length > 0 ? (
             <ul className="space-y-2">
-              {apps?.slice(0, 5).map((app) => (
+              {apps.slice(0, 5).map((app) => (
                 <li key={app.identifier}>
                   <Link
                     to={`/devices/${device.id}/${app.identifier}/snapshots`}
@@ -94,6 +99,10 @@ function DeviceCard({ device }: { device: Device }) {
                 </li>
               ))}
             </ul>
+          ) : (
+            <p className="text-sm text-gray-400">
+              {isError || device.type === 'remote' ? 'Not connected' : 'No apps found'}
+            </p>
           )}
         </div>
       </div>

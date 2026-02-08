@@ -2,9 +2,19 @@ import { Hono } from 'hono';
 import { homedir } from 'os';
 import { join } from 'path';
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync, rmSync } from 'fs';
-import type { SnapshotMetadata } from '@mobile-diff/shared';
 import { FridaService } from '../services/frida.js';
 import { broadcastProgress } from '../websocket.js';
+
+interface SnapshotMetadata {
+  platform: string;
+  device: string;
+  bundle: string;
+  label: string;
+  timestamp: string;
+  scopes: string[];
+  totalFiles: number;
+  totalSize: number;
+}
 
 const app = new Hono();
 const STORAGE_DIR = join(homedir(), '.mobile-diff', 'snapshots');

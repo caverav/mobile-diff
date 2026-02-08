@@ -9,9 +9,9 @@
     "start": "bun run dist/index.js"
   },
   "dependencies": {
-    "@mobile-diff/shared": "workspace:*",
+    "@hono/node-server": "^1.14.0",
     "hono": "^4.0.0",
-    "frida": "^16.1.11",
+    "frida": "^17.6.2",
     "ws": "^8.16.0"
   },
   "devDependencies": {

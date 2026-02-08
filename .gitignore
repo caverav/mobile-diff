@@ -2,6 +2,10 @@
 node_modules/
 .pnp
 .pnp.js
+bun.lockb
+bun.lock
+package-lock.json
+.npm/
 
 # Build outputs
 dist/

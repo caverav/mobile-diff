@@ -3,8 +3,20 @@ import { readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { homedir } from 'os';
-import type { Platform, SnapshotMetadata } from '@mobile-diff/shared';
 import { broadcastProgress } from '../websocket.js';
+
+type Platform = 'ios' | 'android';
+
+interface SnapshotMetadata {
+  platform: string;
+  device: string;
+  bundle: string;
+  label: string;
+  timestamp: string;
+  scopes: string[];
+  totalFiles: number;
+  totalSize: number;
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
