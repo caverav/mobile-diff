@@ -1,0 +1,17 @@
+{
+  "name": "@mobile-diff/agent",
+  "version": "0.1.0",
+  "description": "Frida agents for mobile-diff",
+  "type": "module",
+  "scripts": {
+    "build": "bun run build:ios && bun run build:android",
+    "build:ios": "frida-compile ios/index.ts -o dist/ios-agent.js -c",
+    "build:android": "frida-compile android/index.ts -o dist/android-agent.js -c"
+  },
+  "devDependencies": {
+    "@types/frida-gum": "^18.4.4",
+    "@types/node": "^20.11.0",
+    "frida-compile": "^16.5.2",
+    "typescript": "^5.3.3"
+  }
+}
