@@ -37,9 +37,22 @@ mobile-diff snapshot delete <device> <bundle> before-login
 ## GUI Usage
 
 ```bash
-# Launch GUI
-mobile-diff gui
+# Launch GUI (runs on http://localhost:31338)
+bun run dev:gui
+
+# Or in production
+bun run start:gui
 ```
+
+The GUI provides a web interface for:
+- Browsing connected devices and apps
+- Creating snapshots with real-time progress
+- Managing and comparing snapshots
+- Visual snapshot selection
+
+**Ports:**
+- Backend: `http://localhost:31338`
+- Frontend dev server: `http://localhost:3000` (proxies to backend)
 
 ## How it works
 

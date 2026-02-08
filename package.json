@@ -10,9 +10,12 @@
     "shared"
   ],
   "scripts": {
-    "build": "bun run build:agent && bun run build:cli",
+    "build": "bun run build:agent && bun run build:cli && bun run build:gui",
     "build:agent": "bun run --cwd agent build",
-    "build:cli": "bun run --cwd cli build"
+    "build:cli": "bun run --cwd cli build",
+    "build:gui": "bun run --cwd gui build",
+    "dev:gui": "bun run --cwd gui dev",
+    "start:gui": "bun run --cwd gui start"
   },
   "keywords": [
     "ios",
