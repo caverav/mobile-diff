@@ -1,0 +1,22 @@
+{
+  "name": "@mobile-diff/gui-server",
+  "version": "0.1.0",
+  "description": "Backend server for mobile-diff GUI",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot src/index.ts",
+    "build": "tsc",
+    "start": "bun run dist/index.js"
+  },
+  "dependencies": {
+    "@mobile-diff/shared": "workspace:*",
+    "hono": "^4.0.0",
+    "frida": "^16.1.11",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/ws": "^8.5.10",
+    "typescript": "^5.3.3"
+  }
+}
