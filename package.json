@@ -1,0 +1,32 @@
+{
+  "name": "mobile-diff",
+  "version": "0.1.0",
+  "description": "Snapshot and compare mobile app file systems (iOS & Android)",
+  "private": true,
+  "workspaces": [
+    "agent",
+    "cli",
+    "gui",
+    "shared"
+  ],
+  "scripts": {
+    "build": "bun run build:agent && bun run build:cli",
+    "build:agent": "bun run --cwd agent build",
+    "build:cli": "bun run --cwd cli build"
+  },
+  "keywords": [
+    "ios",
+    "android",
+    "frida",
+    "snapshot",
+    "diff",
+    "mobile",
+    "security"
+  ],
+  "author": "caverav",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}
